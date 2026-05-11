@@ -184,7 +184,7 @@ export default function App() {
       console.log(data);
 
       const cashfree = await load({
-        mode: 'sandbox',
+        mode: 'production',
       });
 
       const result = await cashfree.checkout({
