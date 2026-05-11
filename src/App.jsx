@@ -171,10 +171,10 @@ export default function App() {
           },
 
           body: JSON.stringify({
-            name: customerName,
+            name: customerName || "Customer",
             phone: customerPhone,
             address: customerAddress,
-            amount: total,
+            amount: finalTotal,
           }),
         }
       );
