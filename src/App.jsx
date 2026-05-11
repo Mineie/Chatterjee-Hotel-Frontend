@@ -210,6 +210,25 @@ export default function App() {
   };
 
   return (
+    <>
+  {paymentSuccess && (
+    <div
+      style={{
+        position: "fixed",
+        top: "20px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        background: "#22c55e",
+        color: "white",
+        padding: "16px 28px",
+        borderRadius: "14px",
+        fontWeight: "700",
+        zIndex: 99999,
+      }}
+    >
+      🎉 Order placed successfully!
+    </div>
+  )}
     <div
       style={{
         background: '#f8f6f3',
@@ -597,5 +616,6 @@ export default function App() {
         </div>
       )}
     </div>
+    </>
   );
 }
