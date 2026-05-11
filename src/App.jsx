@@ -123,6 +123,8 @@ export default function App() {
 
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+
   const [customerName, setCustomerName] = useState('');
 
   const [customerPhone, setCustomerPhone] = useState('');
@@ -161,6 +163,7 @@ export default function App() {
 
   const handlePayment = async () => {
     try {
+      setLoading(true);
       const response = await fetch(
         'https://cashfree-backend-06gv.onrender.com/api/payment',
         {
@@ -193,11 +196,13 @@ export default function App() {
       });
 
       if (result) {
+        setLoading(false);
         setPaymentSuccess(true);
         setShowCheckout(false);
         setCart([]);
       }
     } catch (err) {
+      setLoading(false);
       console.log('FULL ERROR:', err);
 
       alert('Check console');
@@ -514,7 +519,7 @@ export default function App() {
                 cursor: 'pointer',
               }}
             >
-              Confirm Order →
+              {loading ? "Processing..." : "Confirm Order →"}
             </button>
 
             <button
